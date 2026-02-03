@@ -5,11 +5,11 @@ class Employee:
         self.name = name
         self.salary = salary
 
-    def display_info(self):
+    def display_info(self): # Instance method
         print(f"Employee Name: {self.name}, Salary: {self.salary}, Company: {self.company_name}")
 
     @classmethod
-    def change_company_name(cls, name):
+    def change_company_name(cls, name): # Class method
         cls.company_name = name
 
 emp1 = Employee("John", 50000)
