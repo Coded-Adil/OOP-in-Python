@@ -6,12 +6,16 @@
 # Method Overriding -> When a child class provides a specific implementation of a method that is already defined in its parent class, it is called method overriding. The child class's method will be called instead of the parent class's method when invoked on an instance of the child class.
 
 class GrandFather:
+    def __init__(self):
+        self.name = "Dadu" # Public variable, can be accessed from anywhere
+        self._age = 30 # Protected variable, can be accessed in child classes but not outside the class
+        self.__khajana = 30000 # Private variable, cannot be accessed outside the class
     def greet(self):
         print("GrandFather says")
 
 class Father(GrandFather):
     def greet(self):
-        print("Father says")
+        print(f"Father says {self._GrandFather__khajana}")
 
 class Child(Father):
     def greet(self):
@@ -24,6 +28,9 @@ child = Child()
 grand_father.greet() # Calls GrandFather's greet method
 father.greet() # Calls Father's greet method
 child.greet() # Calls Child's greet method
+
+print(grand_father.name) # Accessing public variable
+# print(grand_father.__khajana) # This will raise an AttributeError 
 
 # Method Overloading -> Method overloading is a feature that allows a class to have multiple methods with the same name but different parameters. However, Python does not support method overloading in the traditional sense as seen in other programming languages. Instead, you can achieve similar functionality using default arguments or variable-length arguments.
 
